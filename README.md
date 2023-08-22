@@ -1,6 +1,6 @@
 # ST498 Capstone Project
 
-## 1. **Codes** folder 
+## 1. `Codes` folder 
 
 It include all notebooks which we have developed and analyzed throught the project, which includes:
 
@@ -11,9 +11,8 @@ It include all notebooks which we have developed and analyzed throught the proje
 * `Supervised regression.ipynb`: This is the code notebook for **Section 4.4 Supervised Regression**. It is a long notebook, including how preprocess the data for machine learning, using models with default configuration and using models with tuned settings. It also includes performance analysis among train/test, default/tuned confuguraion and among different models. 
 * `Trade network analysis.Rmd`: This is the main notebook for **Section 4.1 Network Analysis**, which is conduced in R.
 
----
 
-## 2. **Data** folder 
+## 2. `Data` folder 
 
 It include all necessary data we used and outputed throught the project.
 
@@ -44,11 +43,10 @@ It include all necessary data we used and outputed throught the project.
 
 * `Model Performance` contains all model performance metrics in **Section 4.4 Supervised Regression**  stored in `~.csv` format.
 
----
+
 ## 3. `Models` folder
 
-It contains all models in **Section 4.3 Time Series Model** and **Section 4.4 Supervised Regression**,  and stored either in `~.h5` or `~.pkl`, which could directly been used to generate predictions for new data.
----
+It contains all models in **Section 4.3 Time Series Model** and **Section 4.4 Supervised Regression**,  and stored either in `~.h5` or `~.pkl`, which could directly been used to generate predictions for new data
 
 
 ## 4. `Plots` folder
