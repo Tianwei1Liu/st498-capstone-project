@@ -1,0 +1,138 @@
+---
+title: "Network Analysis"
+output: html_document
+date: "2023-06-14"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(igraph)
+```
+
+```{r}
+tomato <- read.csv("tomato_export.csv", header = TRUE)
+```
+
+## Build the network
+```{r}
+n_tomato <- graph_from_data_frame(tomato, directed = TRUE)
+summary(n_tomato)
+```
+
+
+```{r}
+head(tomato)
+```
+
+```{r}
+library(sna)
+library(intergraph)
+```
+
+## Plot dendrogram
+
+```{r}
+net_tomato <- asNetwork(n_tomato)
+ec_tomato <- equiv.clust(net_tomato, mode = "graph", plabels = network.vertex.names(net_tomato))
+
+plot(ec_tomato, labels = network.vertex.names(net_tomato), main = "Dendrogram of Tomato Export Network in Europe")
+rect.hclust(ec_tomato$cluster, k = 4)
+```
+
+
+## Plot network
+```{r}
+bm_tomato <- blockmodel(net_tomato, ec = ec_tomato, k = 4)
+memb_tomato <- bm_tomato$block.membership[order(bm_tomato$order.vector)]
+
+plot(n_tomato,
+     vertex.size = 10,
+     vertex.color = memb_tomato,
+     vertex.label = V(n_tomato)$name,
+     vertex.label.cex = 1.2, 
+     edge.arrow.size = 0.1, 
+     edge.curved = TRUE, 
+     edge.width = scales::rescale(E(n_tomato)$Value, to = c(0,7)),
+     main = "Tomato Export Network Showing Structural Equivalence")
+legend("topright",
+       legend = c("Class 1","Class 2","Class 3","Class 4"),
+       pch = 19,
+       col = categorical_pal(8)[c(1:4)],
+       bty = "n")
+```
+
+
+## Top 5 countries in tomato export network
+
+```{r}
+cents <- function(net){
+  PageRank <- igraph::page.rank(net, directed = TRUE)$vector
+  Betweenness <- igraph::betweenness(net, directed = TRUE)
+  all <- data.frame(PageRank, Betweenness)
+  return(all)
+}
+
+tomato_cent <- cents(n_tomato)
+```
+
+### Ordering by PageRank
+```{r}
+head(tomato_cent[order(tomato_cent$PageRank, decreasing = TRUE),],5)
+```
+
+### Ordering by Betweenness
+```{r}
+head(tomato_cent[order(tomato_cent$Betweenness, decreasing = TRUE),],5)
+```
+
+## Comparison of empirical and random networks
+
+### Basic metrics of empirical tomato network
+```{r}
+apl <- average.path.length(n_tomato)
+trans <- transitivity(n_tomato)
+reci <- reciprocity(n_tomato)
+```
+
+### Create an E-R network for tomato network
+```{r}
+gnm <- sample_gnm(n=vcount(n_tomato),m=ecount(n_tomato), directed=T)
+gnm_apl <- average.path.length(gnm)
+gnm_trans <- transitivity(gnm)
+gnm_reci <- reciprocity(gnm)
+```
+
+### Create a configuration network for tomato network
+```{r}
+ind_tomato <- degree(n_tomato, mode = "in")
+outd_tomato <- degree(n_tomato, mode = "out")
+ran <- sample_degseq(out.deg = outd_tomato, in.deg = ind_tomato, method = "simple")
+ran_apl <- average.path.length(ran)
+ran_trans <- transitivity(ran)
+ran_reci <- reciprocity(ran)
+```
+
+### Comparison
+```{r}
+overall.metrics <- data.frame(c("Empirical Tomato Network", "E-R Random Model", "Configuration Random Model"),
+                              c(apl, gnm_apl, ran_apl),
+                              c(trans, gnm_trans, ran_trans),
+                              c(reci, gnm_reci, ran_reci))
+colnames(overall.metrics) <- c("Network","Average.path.length","Transitivity","Reciprocity")
+overall.metrics
+```
+## Centrality Plot
+
+```{r}
+library(qgraph)
+```
+
+```{r}
+centralityPlot(n_tomato, include = c("OutDegree","InDegree","Betweenness","OutExpectedInfluence","InExpectedInfluence"),orderBy = "Betweenness")
+```
+
+
+
