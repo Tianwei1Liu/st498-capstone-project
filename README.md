@@ -13,7 +13,9 @@ It include all notebooks which we have developed and analyzed throught the proje
 
 ---
 
-## 2. **Data** folder include all necessary data we used and outputed throught the project.
+## 2. **Data** folder 
+
+It include all necessary data we used and outputed throught the project.
 
 * `Raw Form` folder include all data sources we collectde from different websites and databases.
 
@@ -43,9 +45,12 @@ It include all notebooks which we have developed and analyzed throught the proje
 * `Model Performance` contains all model performance metrics in **Section 4.4 Supervised Regression**  stored in `~.csv` format.
 
 ---
-## 3. `Models` contains all models in **Section 4.3 Time Series Model** and **Section 4.4 Supervised Regression**,  and stored either in `~.h5` or `~.pkl`, which could directly been used to generate predictions for new data.
+## 3. `Models` folder
+
+It contains all models in **Section 4.3 Time Series Model** and **Section 4.4 Supervised Regression**,  and stored either in `~.h5` or `~.pkl`, which could directly been used to generate predictions for new data.
 ---
 
 
-## 4. `Plots` contains all plots generated in **Section 4.2 Explanatory Data Analysis** and **Section 4.4 Supervised Regression**.
+## 4. `Plots` folder
+It contains all plots generated in **Section 4.2 Explanatory Data Analysis** and **Section 4.4 Supervised Regression**.
 
