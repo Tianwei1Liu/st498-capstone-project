@@ -1,47 +1,67 @@
 # ST498 Capstone Project
 
-1. **Codes** folder include all notebooks which we have developed and analyzed throught the project, which includes:
+## 1. Codes Folder
 
-* `Data cleaning and aggregation.ipynb` is the note book where we process and aggragate all data from differencet sources, clean them and aggragate them into a single `~.csv` file. The input of this notebook is all files under `/Data/Raw Form` and outputs are called `data_all.csv`, which include data for the United Kingdom, Spain, Italy, the Netherlands, Poland and German. And a larger dataset called `data_all_europe.csv`, covering 37 countries in European continent.
+The "Codes" folder contains notebooks used for project development and analysis:
 
-* `Exploratory data analysis.ipynb`: This is the code notebook for **Section 4.2 Explanatory Data Analysis** in the report. The input data is `data_all.csv` and output plots are stored under the folder `Plots`
-* `Time series forecasting.ipynb`: This is the code notebook for **Section 4.3 Time Series Model** in the report. The input data is `data_all.csv` and filtered using `~['Country'] == 'Spain`. In this notebook, ARIMAX and LSTM are trained and analyzed, the LSTM tuned model is included under `Models` and is called `best_lstm_model.h5`.
-* `Supervised regression.ipynb`: This is the code notebook for **Section 4.4 Supervised Regression**. It is a long notebook, including how preprocess the data for machine learning, using models with default configuration and using models with tuned settings. It also includes performance analysis among train/test, default/tuned confuguraion and among different models. 
-* `Trade network analysis.Rmd`: This is the main notebook for **Section 4.1 Network Analysis**, which is conduced in R.
+- `Data cleaning and aggregation.ipynb`: Processes and aggregates data from various sources into `data_all.csv` and `data_all_europe.csv`.
 
+- `Exploratory data analysis.ipynb`: Generates plots for Section 4.2 "Explanatory Data Analysis" and stores them in the "Plots" folder.
 
-2. **Data** folder include all necessary data we used and outputed throught the project.
+- `Time series forecasting.ipynb`: Develops ARIMAX and LSTM models, with the best LSTM model saved as `best_lstm_model.h5`.
 
-* `Raw Form` folder include all data sources we collectde from different websites and databases.
+- `Supervised regression.ipynb`: Covers data preprocessing, model training, and performance analysis for Section 4.4 "Supervised Regression."
 
+- `Trade network analysis.Rmd`: Conducts network analysis (Section 4.1) using R.
 
-| File Name                                               | Description                                                                       |
-|---------------------------------------------------------|-----------------------------------------------------------------------------------|
-| `gross production value_tomato.csv`                    |  Our target feature, contains data on the gross production value of tomatoes. |
-| `comtrade_all.csv`                                      | Contains data related to international trade, likely export and import countries, value in kg and $. |
-| `Food production index (2014-2016 = 100).csv`            | Includes data on food production indexed to the years 2014-2016. |
-| `Pesticides indicators (Land, Inputs and Sustainability).csv` | Contains information on pesticides usage. |
-| `Inputs_LandUse_E_All_Data.csv`                         | Contains data related to land use, including the change in cropland areas. |
-| `population.csv`                                        | Contains population data, categorized by region and other demographic factors. |
-| `Fertilizer consumption (kilograms per hectare of arable land).csv` | Contains data on fertilizer consumption, indicating the kilograms used per hectare of arable land. |
-| `Weather`                                               | A directory or collection of files to temperature and precipitation records. |
-| `Macro-Statistics_Key_Indicators_E_All_Data_NOFLAG.csv`  | Contains macroeconomic statistics and key indicators, related to agriculture economics. |
-| `Agricultural machinery, tractors per 100 sq. km of arable land.csv` | Contains data on the density of agricultural machinery, particularly tractors, per 100 square kilometers of arable land. |
-| `Agriculture, forestry, and fishing, value added (_ of GDP).csv` | Contains data on the value added by agriculture, forestry, and fishing as a percentage of GDP. |
-| `IFADATA Plant Nutrition query - 16-Aug-2023_04.08.xlsx` | An Excel spreadsheet file with plant nutrition data in N, K, and P. |
+## 2. Data Folder
 
-* `Aggregated and Processed` include three files:
-    * `data_all_europe.csv`
-    * `data_all.csv`
-    * `tomato_export_2021.csv`
+The "Data" folder includes all project-related data:
 
-    While the first two files have been briefly explained, `tomato_export_2021.csv` contains information about all trade data happending during year 2021 and is the main source for our Section 4.1.
+### Raw Form
 
-* `Model Performance` contains all model performance metrics in **Section 4.4 Supervised Regression**  stored in `~.csv` format.
+This subfolder contains raw data collected from various sources:
 
+- `gross production value_tomato.csv`: Target feature containing gross production value of tomatoes.
 
-3. `Models` contains all models in **Section 4.3 Time Series Model** and **Section 4.4 Supervised Regression**,  and stored either in `~.h5` or `~.pkl`, which could directly been used to generate predictions for new data.
+- `comtrade_all.csv`: Data on international trade, including export and import countries, quantities (kg), and values ($).
 
+- `Food production index (2014-2016 = 100).csv`: Data on food production indexed to 2014-2016.
 
-4. `Plots` contains all plots generated in **Section 4.2 Explanatory Data Analysis** and **Section 4.4 Supervised Regression**.
+- `Pesticides indicators (Land, Inputs and Sustainability).csv`: Information on pesticides usage.
 
+- `Inputs_LandUse_E_All_Data.csv`: Data on land use, including changes in cropland areas.
+
+- `population.csv`: Population data categorized by region and demographic factors.
+
+- `Fertilizer consumption (kilograms per hectare of arable land).csv`: Fertilizer consumption data in kg per hectare of arable land.
+
+- `Weather`: A directory or collection of files containing temperature and precipitation records.
+
+- `Macro-Statistics_Key_Indicators_E_All_Data_NOFLAG.csv`: Macroeconomic statistics and key indicators related to agriculture economics.
+
+- `Agricultural machinery, tractors per 100 sq. km of arable land.csv`: Data on the density of agricultural machinery, particularly tractors, per 100 square kilometers of arable land.
+
+- `Agriculture, forestry, and fishing, value added (_ of GDP).csv`: Data on the value added by agriculture, forestry, and fishing as a percentage of GDP.
+
+- `IFADATA Plant Nutrition query - 16-Aug-2023_04.08.xlsx`: An Excel spreadsheet with plant nutrition data for N, K, and P.
+
+### Aggregated and Processed
+
+This subfolder contains aggregated and processed data files:
+
+- `data_all_europe.csv`
+- `data_all.csv`
+- `tomato_export_2021.csv`
+
+### Model Performance
+
+Contains model performance metrics in CSV format.
+
+## 3. Models Folder
+
+The "Models" folder stores all models used in time series forecasting and supervised regression, saved as `.h5` or `.pkl` files, suitable for generating predictions on new data.
+
+## 4. Plots Folder
+
+The "Plots" folder contains all plots generated during the exploratory data analysis and supervised regression sections of the project.
