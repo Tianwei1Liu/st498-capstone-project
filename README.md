@@ -8,7 +8,7 @@ It includes all notebooks that we have developed and analyzed throughout the pro
 
 * `Exploratory data analysis.ipynb`: This notebook contains the code for **Section 4.2 Explanatory Data Analysis** in the report. The input data is `data_all.csv`, and the output plots are stored in the folder `Plots`.
 
-* `Time series forecasting.ipynb`: This notebook is used for **Section 4.3 Time Series Model** in the report. The input data is `data_all.csv`, filtered using `~['Country'] == 'Spain`. In this notebook, ARIMAX and LSTM models are trained and analyzed. The tuned LSTM model is included under `Models
+* `Time series forecasting.ipynb`: This notebook is used for **Section 4.3 Time Series Model** in the report. The input data is `data_all.csv`, filtered using `~['Country'] == 'Spain`. In this notebook, ARIMAX and LSTM models are trained and analyzed. The tuned LSTM model is included under `Models`.
 
 
 
