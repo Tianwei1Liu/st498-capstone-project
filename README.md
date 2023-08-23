@@ -2,14 +2,14 @@
 
 ## 1. `Codes` folder 
 
-It include all notebooks which we have developed and analyzed throught the project, which includes:
+It includes all notebooks that we have developed and analyzed throughout the project, which are as follows:
 
-* `Data cleaning and aggregation.ipynb` is the note book where we process and aggragate all data from differencet sources, clean them and aggragate them into a single `~.csv` file. The input of this notebook is all files under `/Data/Raw Form` and outputs are called `data_all.csv`, which include data for the United Kingdom, Spain, Italy, the Netherlands, Poland and German. And a larger dataset called `data_all_europe.csv`, covering 37 countries in European continent.
+* `Data cleaning and aggregation.ipynb`: This notebook processes and aggregates data from different sources, cleans them, and aggregates them into a single `~.csv` file. The input for this notebook is all files under `/Data/Raw Form`, and the outputs are named `data_all.csv`, which includes data for the United Kingdom, Spain, Italy, the Netherlands, Poland, and Germany. Additionally, there is a larger dataset named `data_all_europe.csv`, covering 37 countries in the European continent.
 
-* `Exploratory data analysis.ipynb`: This is the code notebook for **Section 4.2 Explanatory Data Analysis** in the report. The input data is `data_all.csv` and output plots are stored under the folder `Plots`
-* `Time series forecasting.ipynb`: This is the code notebook for **Section 4.3 Time Series Model** in the report. The input data is `data_all.csv` and filtered using `~['Country'] == 'Spain`. In this notebook, ARIMAX and LSTM are trained and analyzed, the LSTM tuned model is included under `Models` and is called `best_lstm_model.h5`.
-* `Supervised regression.ipynb`: This is the code notebook for **Section 4.4 Supervised Regression**. It is a long notebook, including how preprocess the data for machine learning, using models with default configuration and using models with tuned settings. It also includes performance analysis among train/test, default/tuned confuguraion and among different models. 
-* `Trade network analysis.Rmd`: This is the main notebook for **Section 4.1 Network Analysis**, which is conduced in R.
+* `Exploratory data analysis.ipynb`: This notebook contains the code for **Section 4.2 Explanatory Data Analysis** in the report. The input data is `data_all.csv`, and the output plots are stored in the folder `Plots`.
+
+* `Time series forecasting.ipynb`: This notebook is used for **Section 4.3 Time Series Model** in the report. The input data is `data_all.csv`, filtered using `~['Country'] == 'Spain`. In this notebook, ARIMAX and LSTM models are trained and analyzed. The tuned LSTM model is included under `Models
+
 
 
 ## 2. `Data` folder 
